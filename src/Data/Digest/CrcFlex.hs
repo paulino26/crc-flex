@@ -22,7 +22,9 @@ There is a good catlog of CRCs and their implementation details here:-
 https://reveng.sourceforge.io/crc-catalogue/
 -}
 
-module Data.Digest.CrcFlex (CrcModel, CrcTable, crc7Mmc, crc11FlexRay, crc8Maxim, crc16IBM, crcCCITT, crc32Iso, crc64Iso, crc64Emca, applyCrcModel, mkCrcTable, applyCrcTable) where
+module Data.Digest.CrcFlex (CrcModel, CrcTable, applyCrcModel, mkCrcTable, applyCrcTable
+        , crc7Mmc, crc11FlexRay, crc8Maxim, crc16IBM, crcCCITT, crc32Iso, crc64Iso, crc64Emca
+        ) where
 
 import Data.Digest.CrcFlex.Internal
 import Data.Bits (xor)
