@@ -2,7 +2,7 @@
 Module      : CrcFlex
 Description : Computes arbitrary CRCs over a stream of [Word8]
 Copyright   : (c) Paul Randall, 2020
-License     : BSD3
+License     : MIT
 Maintainer  : paul-randall2@sky.com
 Stability   : experimental
 Portability : POSIX
