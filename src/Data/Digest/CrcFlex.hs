@@ -57,18 +57,18 @@ crc32Iso = CrcModel 32 0x04C11DB7 0xFFFFFFFF True 0xFFFFFFFF
 crc64Iso :: CrcModel
 crc64Iso = CrcModel 64 0x1B 0xffffffffffffffff True 0xffffffffffffffff
 
--- |The 'crc64Iso' function provides the model for the commonly used CRC-64 (ISO).
+-- |The 'crc64Emca' function provides the model for the commonly used CRC-64 (ISO).
 crc64Emca :: CrcModel
 crc64Emca = CrcModel 64 0x42f0e1eba9ea3693 0 False 0
 
--- |The 'digest' function produces the resulting CRC from running the CrcModel over the input [Word8] stream.
+-- |The 'applyCrcModel' function produces the resulting CRC from running the CrcModel over the input [Word8] stream.
 applyCrcModel :: CrcModel -> [Word8] -> Integer
 applyCrcModel m xs = c' `xor` cmXor m
     where
         c = foldl' (nextdigest m) (cmInit m) $ map fromIntegral xs
         c' = if cmReflect m then reflect (cmWidth m) c else c
 
--- |The 'applyTable' function produces the resulting CRC by applying the CrcTable over the input [Word8] stream.
+-- |The 'applyCrcTable' function produces the resulting CRC by applying the CrcTable over the input [Word8] stream.
 applyCrcTable :: CrcTable -> [Word8] -> Integer
 applyCrcTable (CrcTable m nxt) xs = c `xor` cmXor m
     where
